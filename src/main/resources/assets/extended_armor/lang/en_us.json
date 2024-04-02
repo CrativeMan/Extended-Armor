@@ -1,0 +1,8 @@
+{
+  "item.extended_armor.copper_helmet": "Copper Helmet",
+  "item.extended_armor.copper_chestplate": "Copper Chestplate",
+  "item.extended_armor.copper_leggings": "Copper Leggings",
+  "item.extended_armor.copper_boots": "Copper Boots",
+
+  "itemgroup.extended_armor.extended_armor_group": "Extended Armor"
+}

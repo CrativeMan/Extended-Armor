@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extended_armor:copper_helmet",
+    "extended_armor:copper_chestplate",
+    "extended_armor:copper_leggings",
+    "extended_armor:copper_boots"
+  ]
+}

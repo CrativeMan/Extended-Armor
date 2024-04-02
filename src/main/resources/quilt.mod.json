@@ -19,7 +19,10 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.crative.extended_armor.ExtendedArmor"
+			"init": "io.github.crative.extended_armor.ExtendedArmor",
+			"fabric-datagen": [
+				"io.github.crative.extended_armor.ExtendedArmorDataGenerator"
+			]
 		},
 		"depends": [
 			{
