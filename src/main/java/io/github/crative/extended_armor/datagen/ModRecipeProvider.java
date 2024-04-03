@@ -1,14 +1,12 @@
 package io.github.crative.extended_armor.datagen;
 
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
-import io.github.crative.extended_armor.items.custom.ExtendedArmorItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonFactory;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeCategory;
 import net.minecraft.util.Identifier;
 

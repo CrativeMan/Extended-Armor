@@ -1,7 +1,6 @@
 package io.github.crative.extended_armor.items;
 
 import io.github.crative.extended_armor.ExtendedArmor;
-import io.github.crative.extended_armor.items.custom.ExtendedArmorItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
