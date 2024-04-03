@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonFactory;
+import net.minecraft.datafixer.fix.ZombieVillagerXpRebuildFix;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeCategory;
@@ -17,6 +18,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 	@Override
 	public void generateRecipes(RecipeExporter exporter) {
+		//* Items
+		ShapedRecipeJsonFactory.create(RecipeCategory.MISC, ExtendedArmorItems.OBSIDIAN_INGOT)
+				.pattern("XOX")
+				.pattern("OXO")
+				.pattern("XOX")
+			    .ingredient('X', ()->Items.OBSIDIAN)
+				.ingredient('O', ()->Items.CRYING_OBSIDIAN)
+				.criterion(hasItem(Items.OBSIDIAN), conditionsFromItem(Items.OBSIDIAN))
+				.criterion(hasItem(Items.CRYING_OBSIDIAN), conditionsFromItem(Items.CRYING_OBSIDIAN))
+				.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.OBSIDIAN_INGOT)));
+
+
 		//* Copper
 		createHelmet(Items.COPPER_INGOT, ExtendedArmorItems.COPPER_HELMET)
 			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.COPPER_HELMET)));
@@ -39,6 +52,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 	}
 
+	//* Generators
 	private ShapedRecipeJsonFactory createHelmet(Item input, Item output) {
 		return ShapedRecipeJsonFactory.create(RecipeCategory.COMBAT, output, 1)
 			.pattern("CCC")

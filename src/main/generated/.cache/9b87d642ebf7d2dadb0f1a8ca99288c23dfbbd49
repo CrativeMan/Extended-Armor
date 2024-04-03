@@ -1,5 +1,7 @@
-// 1.20.4	2024-04-03T20:57:10.005803916	Extended Armor/Recipes
+// 1.20.4	2024-04-03T22:44:26.445143423	Extended Armor/Recipes
 ab1419c3be7725d53a02d29415f5990b13edcce9 data/extended_armor/advancements/recipes/combat/copper_leggings.json
+113b88321b0e239d817942139ab2b2ac469739d4 data/extended_armor/recipes/obsidian_ingot.json
+46529bea6afd10ece3c7a29dfe6d60477e1b465f data/extended_armor/advancements/recipes/misc/obsidian_ingot.json
 c4f2d0d78eeb0df5665b351f997dc87e303f30af data/extended_armor/advancements/recipes/combat/copper_helmet.json
 afd5220079d21d5a3380625cfe4d8d519e89e84d data/extended_armor/advancements/recipes/combat/copper_boots.json
 757aac6b149af12fb559415214264c923822051b data/extended_armor/recipes/copper_helmet.json

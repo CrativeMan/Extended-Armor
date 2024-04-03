@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "X": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "XOX",
+    "OXO",
+    "XOX"
+  ],
+  "result": {
+    "item": "extended_armor:obsidian_ingot"
+  }
+}
