@@ -12,7 +12,9 @@ import java.util.function.Supplier;
 
 public enum ExtendedArmorMaterials implements ArmorMaterial {
 	COPPER("copper", 25, new int[] { 3, 8, 6, 3 }, 10,
-		SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0f,()->Ingredient.ofItems(Items.COPPER_INGOT))
+		SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0f,()->Ingredient.ofItems(Items.COPPER_INGOT)),
+	OBSIDIAN("obsidian", 100, new int[] { 5, 10, 6, 4 }, 20,
+		SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 10f, () -> Ingredient.ofItems(Items.OBSIDIAN))
 	;
 
 	private final String name;

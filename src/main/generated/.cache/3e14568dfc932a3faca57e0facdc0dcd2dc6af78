@@ -1,5 +1,10 @@
-// 1.20.4	2024-04-02T21:04:35.394167327	Extended Armor/Model Definitions
+// 1.20.4	2024-04-03T20:57:10.005189917	Extended Armor/Model Definitions
+573d6554f02205f1aee9e19cce6d8aa2a4bd3ece assets/extended_armor/models/item/obsidian_boots.json
+d2009dc24f1e2220a2350a939e7f1508ef63a57e assets/extended_armor/models/item/obsidian_leggings.json
 2fc322ccedb157824c394f89446a9020567cb47c assets/extended_armor/models/item/copper_helmet.json
+09b20591a4666bbaccbba7fede07c649b67172e7 assets/extended_armor/models/item/obsidian_chestplate.json
 9b1635beac17bae36dddeeab620a652049289ea7 assets/extended_armor/models/item/copper_boots.json
+a891cbab831ad60d5c8c3d994a9eadac83e368e4 assets/extended_armor/models/item/obsidian_helmet.json
 e355f376f816843777e775547cf0ff84f2d6758e assets/extended_armor/models/item/copper_chestplate.json
 c840c930d6c2a1e30c2c1336e01153e471ad7e36 assets/extended_armor/models/item/copper_leggings.json
+5ff2058d38404052e6a3a2da4bece3e3fc4fd160 assets/extended_armor/models/item/obsidian_ingot.json

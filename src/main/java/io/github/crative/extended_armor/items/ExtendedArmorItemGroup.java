@@ -1,6 +1,7 @@
 package io.github.crative.extended_armor.items;
 
 import io.github.crative.extended_armor.ExtendedArmor;
+import io.github.crative.extended_armor.items.custom.ExtendedArmorItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,11 +15,18 @@ public class ExtendedArmorItemGroup {
 		.icon(() -> new ItemStack(ExtendedArmorItems.COPPER_CHESTPLATE))
 		.name(Text.translatable("itemgroup.extended_armor.extended_armor_group"))
 		.entries((context, entries) ->{
+			//* Ingots
+			entries.addItem(ExtendedArmorItems.OBSIDIAN_INGOT);
 			//* Copper Armor
 			entries.addItem(ExtendedArmorItems.COPPER_HELMET);
 			entries.addItem(ExtendedArmorItems.COPPER_CHESTPLATE);
 			entries.addItem(ExtendedArmorItems.COPPER_LEGGINGS);
 			entries.addItem(ExtendedArmorItems.COPPER_BOOTS);
+			//* Obsidian Armor
+			entries.addItem(ExtendedArmorItems.OBSIDIAN_HELMET);
+			entries.addItem(ExtendedArmorItems.OBSIDIAN_CHESTPLATE);
+			entries.addItem(ExtendedArmorItems.OBSIDIAN_LEGGINGS);
+			entries.addItem(ExtendedArmorItems.OBSIDIAN_BOOTS);
 		})
 		.build();
 

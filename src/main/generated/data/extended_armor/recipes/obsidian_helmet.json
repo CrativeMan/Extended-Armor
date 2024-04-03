@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "extended_armor:obsidian_ingot"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "C C",
+    "   "
+  ],
+  "result": {
+    "item": "extended_armor:obsidian_helmet"
+  }
+}

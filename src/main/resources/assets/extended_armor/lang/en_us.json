@@ -1,8 +1,15 @@
 {
+  "item.extended_armor.obsidian_ingot": "Obsidian Ingot",
+
   "item.extended_armor.copper_helmet": "Copper Helmet",
   "item.extended_armor.copper_chestplate": "Copper Chestplate",
   "item.extended_armor.copper_leggings": "Copper Leggings",
   "item.extended_armor.copper_boots": "Copper Boots",
+
+  "item.extended_armor.obsidian_helmet": "Obsidian Helmet",
+  "item.extended_armor.obsidian_chestplate": "Obsidian Chestplate",
+  "item.extended_armor.obsidian_leggings": "Obsidian Leggings",
+  "item.extended_armor.obsidian_boots": "Obsidian Boots",
 
   "itemgroup.extended_armor.extended_armor_group": "Extended Armor"
 }

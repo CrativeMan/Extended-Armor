@@ -16,7 +16,7 @@ import java.util.Map;
 public class ExtendedArmorItem extends ArmorItem {
 	private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
 		(new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-			.put(ExtendedArmorMaterials.COPPER, new StatusEffectInstance(StatusEffects.HASTE, 400, 1,
+			.put(ExtendedArmorMaterials.COPPER, new StatusEffectInstance(StatusEffects.HASTE, 400, 0,
 				false, false, true)).build();
 
 	public ExtendedArmorItem(ArmorMaterial material, ArmorSlot slot, Settings settings) {
