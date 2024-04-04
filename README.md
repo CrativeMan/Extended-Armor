@@ -7,7 +7,12 @@ progression in minecraft.
 - Obsidian Ingot
 ### Custom Armor
 - Copper Armor
-  - Armor Effect#
+    - Prototype Particle Effect
+    - Prototype Status Effect
 - Obsidian Armor
+    - Prototype Particle Effect
+    - Prototype Status Effect
 # Sources
-[quilt-template-mod](https://github.com/QuiltMC/quilt-template-mod)
+[quilt-template-mod](https://github.com/QuiltMC/quilt-template-mod)</br>
+[Kaupenjoe's Fabric Modding YT-Series](https://www.youtube.com/playlist?list=PLKGarocXCE1EO43Dlf5JGh7Yk-kRAXUEJ) 
+for some Coding inspiration and great tutorials
