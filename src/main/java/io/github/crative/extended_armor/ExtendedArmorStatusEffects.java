@@ -4,8 +4,8 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 
 public enum ExtendedArmorStatusEffects {
-	COPPER(StatusEffects.HASTE, 200, 0, false, false, true),
-	OBSIDIAN(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false, true),
+	COPPER(StatusEffects.HASTE, 200, 0, false, false, false),
+	OBSIDIAN(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false, false),
 	;
 
 	private final StatusEffect effects;

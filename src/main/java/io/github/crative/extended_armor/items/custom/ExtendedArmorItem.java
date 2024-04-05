@@ -21,7 +21,6 @@ import java.util.Map;
  * @Credit: Kaupenjoe
  */
 public class ExtendedArmorItem extends ArmorItem {
-
 	private static final Map<ArmorMaterial, Integer> MATERIAL_TO_EFFECT_MAP =
 		(new ImmutableMap.Builder<ArmorMaterial, Integer>())
 			.put(ExtendedArmorMaterials.COPPER, 0)
@@ -35,11 +34,11 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * Get called every tick and checks if the entity wearing the armor is the player,
 	 * and if it has a full suit of armor on.
 	 * If that is true, then it checks which setBonus to give to the player
-	 * @param stack
-	 * @param world
-	 * @param entity
-	 * @param slot
-	 * @param selected
+	 * @param stack provided by ArmorItem
+	 * @param world world the player is in
+	 * @param entity entity that has the item in the inventory
+	 * @param slot slot the item is in
+	 * @param selected if item is selected
 	 */
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
@@ -55,8 +54,8 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * Loops through every entry in the MATERIAL_TO_EFFECT_MAP map
 	 * Checks if the player has an armor on that is on the list
 	 * If yes then it calls the executeSetBonus methode
-	 * @param player
-	 * @param world
+	 * @param player player entity
+	 * @param world world player is in
 	 */
 	private void evaluateSetBonus(PlayerEntity player, World world) {
 		for(Map.Entry<ArmorMaterial, Integer> entry : MATERIAL_TO_EFFECT_MAP.entrySet()){
@@ -71,18 +70,23 @@ public class ExtendedArmorItem extends ArmorItem {
 
 	/**
 	 * Switches through the different setBoni keys and running the desired particle and/or StatusEffect function
-	 * @param player
-	 * @param mapArmorMaterial
-	 * @param setBonusKey
-	 * @param world
+	 * @param player player entity
+	 * @param mapArmorMaterial Armor material
+	 * @param setBonusKey Integer key for which setBonus to give
+	 * @param world world where player is
 	 */
 	private void executeSetBonus(PlayerEntity player, ArmorMaterial mapArmorMaterial, Integer setBonusKey, World world) {
 		switch (setBonusKey){
-			case 0: addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.COPPER);
-				addParticalsToPlayer(player, world, ExtendedArmorParticles.COPPER); break;
-			case 1: addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.OBSIDIAN);
-				addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN); break;
-			default: break;
+			case 0:
+				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.COPPER);
+				addParticalsToPlayer(player, world, ExtendedArmorParticles.COPPER);
+				break;
+			case 1:
+				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.OBSIDIAN);
+				addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -90,24 +94,24 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * Checks if the world is a ServerWorld
 	 * if so, then it spawns Particles using the {@link io.github.crative.extended_armor.ExtendedArmorParticles} enum
 	 * to get the different attributes
-	 * @param player
-	 * @param world
-	 * @param particles
+	 * @param player player entity
+	 * @param world World which player is in
+	 * @param particles instance of {@link io.github.crative.extended_armor.ExtendedArmorParticles} enum
 	 */
 	private void addParticalsToPlayer(PlayerEntity player, World world, ExtendedArmorParticles particles) {
 		if(world instanceof ServerWorld serverWorld){
 			((ServerWorld) world).spawnParticles(particles.getParticles(), player.getX(), player.getY() + 1.0,
-				player.getZ(), particles.getCount(), Math.random(),Math.random(),Math.random(), particles.getSpeed());
+				player.getZ(), particles.getCount(), particles.getDeltaX(), particles.getDeltaY(), particles.getDeltaZ(), particles.getSpeed());
 		}
 	}
 
 	/**
 	 * Creating a StatusEffectInstance of the desired StatusEffect using the {@link io.github.crative.extended_armor.ExtendedArmorStatusEffects}
 	 * and then checking if the player already has the effect active, if not applying it to the player
-	 * @param player
-	 * @param world
-	 * @param mapArmorMaterial
-	 * @param statusEffects
+	 * @param player player entity
+	 * @param world world which player is in
+	 * @param mapArmorMaterial which armorMaterial is to be affected
+	 * @param statusEffects instance of {@link io.github.crative.extended_armor.ExtendedArmorStatusEffects} enum
 	 */
 	private void addStatusEffectToPlayer(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial, ExtendedArmorStatusEffects statusEffects) {
 
@@ -127,8 +131,8 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * for-loop is a failsafe for wearing armor
 	 * gets each item in the armor slots and checks if it is form an armor material in the map
 	 * @Credit: Kaupenjoe's YouTube series on Fabric modding
-	 * @param mapArmorMaterial
-	 * @param player
+	 * @param mapArmorMaterial armor material to be effected
+	 * @param player player entity
 	 */
 	private boolean hasCorrectArmorOn(ArmorMaterial mapArmorMaterial, PlayerEntity player) {
 		for(ItemStack armorStack : player.getInventory().armor){
@@ -148,8 +152,7 @@ public class ExtendedArmorItem extends ArmorItem {
 
 	/**
 	 * returns true if the player has a full suit of armor on
-	 * @param player
-	 * @return
+	 * @param player player entity
 	 */
 	private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
 		ItemStack boots = player.getInventory().getArmorStack(0);
