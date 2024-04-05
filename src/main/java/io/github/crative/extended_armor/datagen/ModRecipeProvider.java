@@ -1,12 +1,10 @@
 package io.github.crative.extended_armor.datagen;
 
-import io.github.crative.extended_armor.items.ExtendedArmorItemGroup;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonFactory;
-import net.minecraft.datafixer.fix.ZombieVillagerXpRebuildFix;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeCategory;
