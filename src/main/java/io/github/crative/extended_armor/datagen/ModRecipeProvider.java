@@ -1,5 +1,6 @@
 package io.github.crative.extended_armor.datagen;
 
+import io.github.crative.extended_armor.items.ExtendedArmorItemGroup;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -39,6 +40,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.COPPER_LEGGINGS)));
 		createBoots(Items.COPPER_INGOT, ExtendedArmorItems.COPPER_BOOTS)
 			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.COPPER_BOOTS)));
+
+		//* Stealth
+		createHelmet(ExtendedArmorItems.STEALTH_WRAPPINGS, ExtendedArmorItems.STEALTH_HELMET)
+			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.STEALTH_HELMET)));
+		createChestplate(ExtendedArmorItems.STEALTH_WRAPPINGS, ExtendedArmorItems.STEALTH_CHESTPLATE)
+			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.STEALTH_CHESTPLATE)));
+		createLeggings(ExtendedArmorItems.STEALTH_WRAPPINGS, ExtendedArmorItems.STEALTH_LEGGINGS)
+			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.STEALTH_LEGGINGS)));
+		createBoots(ExtendedArmorItems.STEALTH_WRAPPINGS, ExtendedArmorItems.STEALTH_BOOTS)
+			.offerTo(exporter, new Identifier(getRecipeName(ExtendedArmorItems.STEALTH_BOOTS)));
 
 		//* Obsidian
 		createHelmet(ExtendedArmorItems.OBSIDIAN_INGOT, ExtendedArmorItems.OBSIDIAN_HELMET)

@@ -16,9 +16,22 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	@Override
 	protected void configure(HolderLookup.Provider arg) {
 		getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+			//* Copper
 			.add(ExtendedArmorItems.COPPER_HELMET)
 			.add(ExtendedArmorItems.COPPER_CHESTPLATE)
 			.add(ExtendedArmorItems.COPPER_LEGGINGS)
-			.add(ExtendedArmorItems.COPPER_BOOTS);
+			.add(ExtendedArmorItems.COPPER_BOOTS)
+
+			//* Stealth
+			.add(ExtendedArmorItems.STEALTH_HELMET)
+			.add(ExtendedArmorItems.STEALTH_CHESTPLATE)
+			.add(ExtendedArmorItems.STEALTH_LEGGINGS)
+			.add(ExtendedArmorItems.STEALTH_BOOTS)
+
+			//* Obsidian
+			.add(ExtendedArmorItems.OBSIDIAN_HELMET)
+			.add(ExtendedArmorItems.OBSIDIAN_CHESTPLATE)
+			.add(ExtendedArmorItems.OBSIDIAN_LEGGINGS)
+			.add(ExtendedArmorItems.OBSIDIAN_BOOTS);
 	}
 }

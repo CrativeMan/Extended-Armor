@@ -1,6 +1,7 @@
 package io.github.crative.extended_armor.items.armor_materials;
 
 import io.github.crative.extended_armor.ExtendedArmor;
+import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -12,9 +13,14 @@ import java.util.function.Supplier;
 
 public enum ExtendedArmorMaterials implements ArmorMaterial {
 	COPPER("copper", 25, new int[] { 3, 8, 6, 3 }, 10,
-		SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0f,()->Ingredient.ofItems(Items.COPPER_INGOT)),
+		SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2f, 0f,
+		()->Ingredient.ofItems(Items.COPPER_INGOT)),
 	OBSIDIAN("obsidian", 100, new int[] { 5, 10, 6, 4 }, 20,
-		SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 10f, () -> Ingredient.ofItems(Items.OBSIDIAN))
+		SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 1f,
+		() -> Ingredient.ofItems(ExtendedArmorItems.OBSIDIAN_INGOT)),
+	STEALTH("stealth", 20, new int[] { 2, 5, 3, 2 }, 10,
+		SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 1f, 0f,
+		() -> Ingredient.ofItems(ExtendedArmorItems.STEALTH_WRAPPINGS))
 	;
 
 	private final String name;

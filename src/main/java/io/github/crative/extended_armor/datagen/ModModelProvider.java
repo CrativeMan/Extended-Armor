@@ -21,12 +21,19 @@ public class ModModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 		//* Ingots
 		itemModelGenerator.register(ExtendedArmorItems.OBSIDIAN_INGOT, Models.SINGLE_LAYER_ITEM);
+		itemModelGenerator.register(ExtendedArmorItems.STEALTH_WRAPPINGS, Models.SINGLE_LAYER_ITEM);
 
 		//* Copper Armor
 		itemModelGenerator.register(ExtendedArmorItems.COPPER_HELMET, Models.SINGLE_LAYER_ITEM);
 		itemModelGenerator.register(ExtendedArmorItems.COPPER_CHESTPLATE, Models.SINGLE_LAYER_ITEM);
 		itemModelGenerator.register(ExtendedArmorItems.COPPER_LEGGINGS, Models.SINGLE_LAYER_ITEM);
 		itemModelGenerator.register(ExtendedArmorItems.COPPER_BOOTS, Models.SINGLE_LAYER_ITEM);
+
+		//* Stealth Armor
+		itemModelGenerator.register(ExtendedArmorItems.STEALTH_HELMET, Models.SINGLE_LAYER_ITEM);
+		itemModelGenerator.register(ExtendedArmorItems.STEALTH_CHESTPLATE, Models.SINGLE_LAYER_ITEM);
+		itemModelGenerator.register(ExtendedArmorItems.STEALTH_LEGGINGS, Models.SINGLE_LAYER_ITEM);
+		itemModelGenerator.register(ExtendedArmorItems.STEALTH_BOOTS, Models.SINGLE_LAYER_ITEM);
 
 		//* Obsidian Armor
 		itemModelGenerator.register(ExtendedArmorItems.OBSIDIAN_HELMET, Models.SINGLE_LAYER_ITEM);

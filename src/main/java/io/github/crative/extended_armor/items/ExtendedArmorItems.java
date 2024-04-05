@@ -14,6 +14,8 @@ public class ExtendedArmorItems {
 	//* Ingots
 	public static final Item OBSIDIAN_INGOT = registerItem("obsidian_ingot",
 		new Item(new QuiltItemSettings()));
+	public static final Item STEALTH_WRAPPINGS = registerItem("stealth_wrappings",
+		new Item(new QuiltItemSettings()));
 
 	//* Copper Armor
 	public static final ArmorItem COPPER_HELMET = registerArmorItem("copper_helmet",
@@ -24,6 +26,16 @@ public class ExtendedArmorItems {
 		new ArmorItem(ExtendedArmorMaterials.COPPER, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings()));
 	public static final ArmorItem COPPER_BOOTS = registerArmorItem("copper_boots",
 		new ArmorItem(ExtendedArmorMaterials.COPPER, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings()));
+
+	//* Stealth Armor
+	public static final ArmorItem STEALTH_HELMET = registerArmorItem("stealth_helmet",
+		new ExtendedArmorItem(ExtendedArmorMaterials.STEALTH, ArmorItem.ArmorSlot.HELMET, new QuiltItemSettings()));
+	public static final ArmorItem STEALTH_CHESTPLATE = registerArmorItem("stealth_chestplate",
+		new ArmorItem(ExtendedArmorMaterials.STEALTH, ArmorItem.ArmorSlot.CHESTPLATE, new QuiltItemSettings()));
+	public static final ArmorItem STEALTH_LEGGINGS = registerArmorItem("stealth_leggings",
+		new ArmorItem(ExtendedArmorMaterials.STEALTH, ArmorItem.ArmorSlot.LEGGINGS, new QuiltItemSettings()));
+	public static final ArmorItem STEALTH_BOOTS = registerArmorItem("stealth_boots",
+		new ArmorItem(ExtendedArmorMaterials.STEALTH, ArmorItem.ArmorSlot.BOOTS, new QuiltItemSettings()));
 
 	//* Obsidian Armor
 	public static final ArmorItem OBSIDIAN_HELMET = registerArmorItem("obsidian_helmet",

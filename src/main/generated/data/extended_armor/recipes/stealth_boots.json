@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "extended_armor:stealth_wrappings"
+    }
+  },
+  "pattern": [
+    "   ",
+    "C C",
+    "C C"
+  ],
+  "result": {
+    "item": "extended_armor:stealth_boots"
+  }
+}
