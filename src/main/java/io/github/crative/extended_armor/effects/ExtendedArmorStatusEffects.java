@@ -1,4 +1,4 @@
-package io.github.crative.extended_armor;
+package io.github.crative.extended_armor.effects;
 
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffects;
 public enum ExtendedArmorStatusEffects {
 	COPPER(StatusEffects.HASTE, 200, 0, false, false, false),
 	OBSIDIAN(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false, false),
+	STEALTH(StatusEffects.SPEED, 200, 0, false, false, true)
 	;
 
 	private final StatusEffect effects;

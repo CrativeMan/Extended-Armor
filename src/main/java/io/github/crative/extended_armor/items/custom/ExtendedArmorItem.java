@@ -1,8 +1,8 @@
 package io.github.crative.extended_armor.items.custom;
 
 import com.google.common.collect.ImmutableMap;
-import io.github.crative.extended_armor.ExtendedArmorParticles;
-import io.github.crative.extended_armor.ExtendedArmorStatusEffects;
+import io.github.crative.extended_armor.effects.ExtendedArmorParticles;
+import io.github.crative.extended_armor.effects.ExtendedArmorStatusEffects;
 import io.github.crative.extended_armor.items.armor_materials.ExtendedArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -24,7 +24,8 @@ public class ExtendedArmorItem extends ArmorItem {
 	private static final Map<ArmorMaterial, Integer> MATERIAL_TO_EFFECT_MAP =
 		(new ImmutableMap.Builder<ArmorMaterial, Integer>())
 			.put(ExtendedArmorMaterials.COPPER, 0)
-			.put(ExtendedArmorMaterials.OBSIDIAN, 1).build();
+			.put(ExtendedArmorMaterials.OBSIDIAN, 1)
+			.put(ExtendedArmorMaterials.STEALTH, 2).build();
 
 	public ExtendedArmorItem(ArmorMaterial material, ArmorSlot slot, Settings settings) {
 		super(material, slot, settings);
@@ -85,18 +86,30 @@ public class ExtendedArmorItem extends ArmorItem {
 				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.OBSIDIAN);
 				addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN);
 				break;
+			case 2:
+				stealthEffect(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.STEALTH);
 			default:
 				break;
 		}
 	}
 
+
+	private void stealthEffect(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial, ExtendedArmorStatusEffects effects) {
+		if(!world.isClient){
+			if(world.getTimeOfDay() >= 13000 || world.getTimeOfDay() < 1000){
+				addStatusEffectToPlayer(player, world, mapArmorMaterial, effects);
+			}
+			player.setCustomNameVisible(false);
+		}
+	}
+
 	/**
 	 * Checks if the world is a ServerWorld
-	 * if so, then it spawns Particles using the {@link io.github.crative.extended_armor.ExtendedArmorParticles} enum
+	 * if so, then it spawns Particles using the {@link ExtendedArmorParticles} enum
 	 * to get the different attributes
 	 * @param player player entity
 	 * @param world World which player is in
-	 * @param particles instance of {@link io.github.crative.extended_armor.ExtendedArmorParticles} enum
+	 * @param particles instance of {@link ExtendedArmorParticles} enum
 	 */
 	private void addParticalsToPlayer(PlayerEntity player, World world, ExtendedArmorParticles particles) {
 		if(world instanceof ServerWorld serverWorld){
@@ -106,12 +119,12 @@ public class ExtendedArmorItem extends ArmorItem {
 	}
 
 	/**
-	 * Creating a StatusEffectInstance of the desired StatusEffect using the {@link io.github.crative.extended_armor.ExtendedArmorStatusEffects}
+	 * Creating a StatusEffectInstance of the desired StatusEffect using the {@link ExtendedArmorStatusEffects}
 	 * and then checking if the player already has the effect active, if not applying it to the player
 	 * @param player player entity
 	 * @param world world which player is in
 	 * @param mapArmorMaterial which armorMaterial is to be affected
-	 * @param statusEffects instance of {@link io.github.crative.extended_armor.ExtendedArmorStatusEffects} enum
+	 * @param statusEffects instance of {@link ExtendedArmorStatusEffects} enum
 	 */
 	private void addStatusEffectToPlayer(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial, ExtendedArmorStatusEffects statusEffects) {
 
@@ -147,7 +160,7 @@ public class ExtendedArmorItem extends ArmorItem {
 		ArmorItem helmet = ((ArmorItem) player.getInventory().getArmorStack(3).getItem());
 
 		return helmet.getMaterial() == mapArmorMaterial	&& chestplate.getMaterial() == mapArmorMaterial
-			&& leggings.getMaterial() == mapArmorMaterial;
+			&& leggings.getMaterial() == mapArmorMaterial && boots.getMaterial() == mapArmorMaterial;
 	}
 
 	/**

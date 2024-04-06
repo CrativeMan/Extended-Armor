@@ -22,7 +22,7 @@
 			"init": [
 				"io.github.crative.extended_armor.ExtendedArmor"
 			],
-			"client": [
+			"client_init": [
 				"io.github.crative.extended_armor.ExtendedArmorClient"
 			],
 			"fabric-datagen": [
