@@ -1,16 +1,15 @@
 package io.github.crative.extended_armor.items.custom;
 
 import com.google.common.collect.ImmutableMap;
+import io.github.crative.extended_armor.effects.ExtendedArmorCustomEffects;
 import io.github.crative.extended_armor.effects.ExtendedArmorParticles;
 import io.github.crative.extended_armor.effects.ExtendedArmorStatusEffects;
 import io.github.crative.extended_armor.items.armor_materials.ExtendedArmorMaterials;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 
 import java.util.Map;
@@ -21,6 +20,7 @@ import java.util.Map;
  * @Credit: Kaupenjoe
  */
 public class ExtendedArmorItem extends ArmorItem {
+	private static final ExtendedArmorCustomEffects customEffects = new ExtendedArmorCustomEffects();
 	private static final Map<ArmorMaterial, Integer> MATERIAL_TO_EFFECT_MAP =
 		(new ImmutableMap.Builder<ArmorMaterial, Integer>())
 			.put(ExtendedArmorMaterials.COPPER, 0)
@@ -44,27 +44,8 @@ public class ExtendedArmorItem extends ArmorItem {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if(!world.isClient){
-			if(entity instanceof PlayerEntity player && hasFullSuitOfArmorOn(player)){
-				evaluateSetBonus(player, world);
-			}
-		}
-	}
-
-
-	/**
-	 * Loops through every entry in the MATERIAL_TO_EFFECT_MAP map
-	 * Checks if the player has an armor on that is on the list
-	 * If yes then it calls the executeSetBonus methode
-	 * @param player player entity
-	 * @param world world player is in
-	 */
-	private void evaluateSetBonus(PlayerEntity player, World world) {
-		for(Map.Entry<ArmorMaterial, Integer> entry : MATERIAL_TO_EFFECT_MAP.entrySet()){
-			ArmorMaterial mapArmorMaterial = entry.getKey();
-			Integer setBonusKey = entry.getValue();
-
-			if(hasCorrectArmorOn(mapArmorMaterial, player)){
-				executeSetBonus(player, mapArmorMaterial, setBonusKey, world);
+			if(entity instanceof PlayerEntity player && _hasFullSuitOfArmorOn(player)){
+				_evaluateSetBonus(player, world);
 			}
 		}
 	}
@@ -79,65 +60,38 @@ public class ExtendedArmorItem extends ArmorItem {
 	private void executeSetBonus(PlayerEntity player, ArmorMaterial mapArmorMaterial, Integer setBonusKey, World world) {
 		switch (setBonusKey){
 			case 0:
-				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.COPPER);
-				addParticalsToPlayer(player, world, ExtendedArmorParticles.COPPER);
+				customEffects.addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.COPPER);
+				customEffects.addParticalsToPlayer(player, world, ExtendedArmorParticles.COPPER);
 				break;
 			case 1:
-				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.OBSIDIAN);
-				addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN);
+				customEffects.addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.OBSIDIAN);
+				customEffects.addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN);
 				break;
 			case 2:
-				stealthEffect(player, world, mapArmorMaterial);
+				customEffects.stealthEffect(player, world, mapArmorMaterial);
+				break;
 			default:
 				break;
 		}
 	}
 
 
-	private void stealthEffect(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial) {
-		if(!world.isClient){
-			if(world.getTimeOfDay() >= 13000 || world.getTimeOfDay() < 1000){
-				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.STEALTH);
+	/**
+	 * Loops through every entry in the MATERIAL_TO_EFFECT_MAP map
+	 * Checks if the player has an armor on that is on the list
+	 * If yes then it calls the executeSetBonus methode
+	 * @param player player entity
+	 * @param world world player is in
+	 */
+	private void _evaluateSetBonus(PlayerEntity player, World world) {
+		for(Map.Entry<ArmorMaterial, Integer> entry : MATERIAL_TO_EFFECT_MAP.entrySet()){
+			ArmorMaterial mapArmorMaterial = entry.getKey();
+			Integer setBonusKey = entry.getValue();
+
+			if(_hasCorrectArmorOn(mapArmorMaterial, player)){
+				executeSetBonus(player, mapArmorMaterial, setBonusKey, world);
 			}
-			player.setCustomNameVisible(false);
 		}
-	}
-
-	/**
-	 * Checks if the world is a ServerWorld
-	 * if so, then it spawns Particles using the {@link ExtendedArmorParticles} enum
-	 * to get the different attributes
-	 * @param player player entity
-	 * @param world World which player is in
-	 * @param particles instance of {@link ExtendedArmorParticles} enum
-	 */
-	private void addParticalsToPlayer(PlayerEntity player, World world, ExtendedArmorParticles particles) {
-		if(world instanceof ServerWorld serverWorld){
-			((ServerWorld) world).spawnParticles(particles.getParticles(), player.getX(), player.getY() + 1.0,
-				player.getZ(), particles.getCount(), particles.getDeltaX(), particles.getDeltaY(), particles.getDeltaZ(), particles.getSpeed());
-		}
-	}
-
-	/**
-	 * Creating a StatusEffectInstance of the desired StatusEffect using the {@link ExtendedArmorStatusEffects}
-	 * and then checking if the player already has the effect active, if not applying it to the player
-	 * @param player player entity
-	 * @param world world which player is in
-	 * @param mapArmorMaterial which armorMaterial is to be affected
-	 * @param statusEffects instance of {@link ExtendedArmorStatusEffects} enum
-	 */
-	private void addStatusEffectToPlayer(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial, ExtendedArmorStatusEffects statusEffects) {
-
-		StatusEffectInstance effectInstance = new StatusEffectInstance(statusEffects.getEffects(),
-			statusEffects.getDuration(), statusEffects.getAmplifier(),
-			statusEffects.isAmbient(), statusEffects.isShowParticles(), statusEffects.isShowIcon());
-
-		boolean hasPlayerEffect = player.hasStatusEffect(effectInstance.getEffectType());
-
-		if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect){
-			player.addStatusEffect(effectInstance);
-		}
-
 	}
 
 	/**
@@ -147,7 +101,7 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * @param mapArmorMaterial armor material to be effected
 	 * @param player player entity
 	 */
-	private boolean hasCorrectArmorOn(ArmorMaterial mapArmorMaterial, PlayerEntity player) {
+	public static boolean _hasCorrectArmorOn(ArmorMaterial mapArmorMaterial, PlayerEntity player) {
 		for(ItemStack armorStack : player.getInventory().armor){
 			if(!(armorStack.getItem() instanceof ArmorItem)){
 				return false;
@@ -167,7 +121,7 @@ public class ExtendedArmorItem extends ArmorItem {
 	 * returns true if the player has a full suit of armor on
 	 * @param player player entity
 	 */
-	private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
+	private boolean _hasFullSuitOfArmorOn(PlayerEntity player) {
 		ItemStack boots = player.getInventory().getArmorStack(0);
 		ItemStack leggings = player.getInventory().getArmorStack(1);
 		ItemStack chestplate = player.getInventory().getArmorStack(2);

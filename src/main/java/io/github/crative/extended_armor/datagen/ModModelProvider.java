@@ -19,7 +19,7 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		//* Ingots
+		//* Items
 		itemModelGenerator.register(ExtendedArmorItems.OBSIDIAN_INGOT, Models.SINGLE_LAYER_ITEM);
 		itemModelGenerator.register(ExtendedArmorItems.STEALTH_WRAPPINGS, Models.SINGLE_LAYER_ITEM);
 

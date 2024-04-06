@@ -4,8 +4,8 @@ import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleTypes;
 
 public enum ExtendedArmorParticles {
-	COPPER(ParticleTypes.ASH, 2, 1F,
-		(float) Math.random(), (float) Math.random(), (float) Math.random()),
+	COPPER(ParticleTypes.ASH, 1, 1F,
+		(float) Math.random(), (float) Math.random()/2, (float) Math.random()),
 	OBSIDIAN(ParticleTypes.FALLING_OBSIDIAN_TEAR, 1, 1f,
 		(float) Math.random()/4, (float) Math.random()/2, (float) Math.random()/4)
 	;
