@@ -19,7 +19,12 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.crative.extended_armor.ExtendedArmor",
+			"init": [
+				"io.github.crative.extended_armor.ExtendedArmor"
+			],
+			"client_init": [
+				"io.github.crative.extended_armor.ExtendedArmorClient"
+			],
 			"fabric-datagen": [
 				"io.github.crative.extended_armor.ExtendedArmorDataGenerator"
 			]
@@ -36,6 +41,10 @@
 			{
 				"id": "minecraft",
 				"versions": ">=1.20"
+			},
+			{
+				"id": "fabric-key-binding-api-v1",
+				"versions": "*"
 			}
 		]
 	},

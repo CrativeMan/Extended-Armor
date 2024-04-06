@@ -1,4 +1,4 @@
-package io.github.crative.extended_armor;
+package io.github.crative.extended_armor.effects;
 
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleTypes;
