@@ -87,17 +87,17 @@ public class ExtendedArmorItem extends ArmorItem {
 				addParticalsToPlayer(player, world, ExtendedArmorParticles.OBSIDIAN);
 				break;
 			case 2:
-				stealthEffect(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.STEALTH);
+				stealthEffect(player, world, mapArmorMaterial);
 			default:
 				break;
 		}
 	}
 
 
-	private void stealthEffect(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial, ExtendedArmorStatusEffects effects) {
+	private void stealthEffect(PlayerEntity player, World world, ArmorMaterial mapArmorMaterial) {
 		if(!world.isClient){
 			if(world.getTimeOfDay() >= 13000 || world.getTimeOfDay() < 1000){
-				addStatusEffectToPlayer(player, world, mapArmorMaterial, effects);
+				addStatusEffectToPlayer(player, world, mapArmorMaterial, ExtendedArmorStatusEffects.STEALTH);
 			}
 			player.setCustomNameVisible(false);
 		}
