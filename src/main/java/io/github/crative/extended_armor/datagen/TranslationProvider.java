@@ -1,6 +1,5 @@
 package io.github.crative.extended_armor.datagen;
 
-import io.github.crative.extended_armor.items.ExtendedArmorItemGroup;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
