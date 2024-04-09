@@ -3,6 +3,8 @@ A minecraft mod made for [quilt](https://quiltmc.org/en/) and
 [fabric](https://fabricmc.net/), that aims to improve the armor 
 progression in minecraft.
 ## Features
+### Blocks
+- [WIP] Armory
 ### Items
 - Obsidian Ingot
 ### Custom Armor
