@@ -1,7 +1,10 @@
 package io.github.crative.extended_armor;
 
+import io.github.crative.extended_armor.blocks.ExtendedArmorModBlocks;
+import io.github.crative.extended_armor.blocks.entity.ExtendedArmorBlockEntities;
 import io.github.crative.extended_armor.items.ExtendedArmorItemGroup;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
+import io.github.crative.extended_armor.screen.ExtendedArmorScreenHandlers;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -15,8 +18,9 @@ public class ExtendedArmor implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Initializing mod " + MOD_ID);
 		ExtendedArmorItems.registerModItems();
-		LOGGER.info("Registered mod items for " + MOD_ID);
 		ExtendedArmorItemGroup.registerItemGroup();
-		LOGGER.info("Registered item group for " + MOD_ID);
+		ExtendedArmorModBlocks.registerModBlocks();
+		ExtendedArmorBlockEntities.registerBlockEntities();
+		ExtendedArmorScreenHandlers.registerScreenHandlers();
 	}
 }

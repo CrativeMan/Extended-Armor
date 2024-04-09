@@ -1,5 +1,6 @@
 package io.github.crative.extended_armor.datagen;
 
+import io.github.crative.extended_armor.blocks.ExtendedArmorModBlocks;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -11,6 +12,8 @@ public class TranslationProvider extends FabricLanguageProvider {
 
 	@Override
 	public void generateTranslations(TranslationBuilder translationBuilder) {
+		translationBuilder.add(ExtendedArmorModBlocks.ARMORY, "Armory");
+
 		translationBuilder.add(ExtendedArmorItems.OBSIDIAN_INGOT, "Obsidian Ingot");
 		translationBuilder.add(ExtendedArmorItems.STEALTH_WRAPPINGS, "Silent Wrappings");
 
@@ -30,5 +33,6 @@ public class TranslationProvider extends FabricLanguageProvider {
 		translationBuilder.add(ExtendedArmorItems.OBSIDIAN_BOOTS, "Obsidian Boots");
 
 		translationBuilder.add("itemgroup.extended_armor.extended_armor_group", "Extended Armor");
+		translationBuilder.add("extended_armor.armory", "Armory");
 	}
 }

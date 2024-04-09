@@ -1,6 +1,7 @@
 package io.github.crative.extended_armor.items;
 
 import io.github.crative.extended_armor.ExtendedArmor;
+import io.github.crative.extended_armor.blocks.ExtendedArmorModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,8 @@ public class ExtendedArmorItemGroup {
 		.icon(() -> new ItemStack(ExtendedArmorItems.COPPER_CHESTPLATE))
 		.name(Text.translatable("itemgroup.extended_armor.extended_armor_group"))
 		.entries((context, entries) ->{
+			//* Blocks
+			entries.addItem(ExtendedArmorModBlocks.ARMORY);
 			//* Ingots
 			entries.addItem(ExtendedArmorItems.OBSIDIAN_INGOT);
 			entries.addItem(ExtendedArmorItems.STEALTH_WRAPPINGS);
@@ -37,5 +40,7 @@ public class ExtendedArmorItemGroup {
 
 	public static void registerItemGroup() {
 		Registry.register(Registries.ITEM_GROUP, new Identifier(ExtendedArmor.MOD_ID, "extended_armor_group"), EXTENDED_ARMOR_GROUP);
+		ExtendedArmor.LOGGER.info("Registered item group for " + ExtendedArmor.MOD_ID);
+
 	}
 }

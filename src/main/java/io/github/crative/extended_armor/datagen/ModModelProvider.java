@@ -1,5 +1,6 @@
 package io.github.crative.extended_armor.datagen;
 
+import io.github.crative.extended_armor.blocks.ExtendedArmorModBlocks;
 import io.github.crative.extended_armor.items.ExtendedArmorItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -14,7 +15,7 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
+		blockStateModelGenerator.registerSimpleState(ExtendedArmorModBlocks.ARMORY);
 	}
 
 	@Override
