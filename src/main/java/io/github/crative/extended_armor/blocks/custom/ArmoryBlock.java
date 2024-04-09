@@ -1,7 +1,6 @@
 package io.github.crative.extended_armor.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
-import io.github.crative.extended_armor.ExtendedArmor;
 import io.github.crative.extended_armor.blocks.entity.ArmoryBlockEntity;
 import io.github.crative.extended_armor.blocks.entity.ExtendedArmorBlockEntities;
 import net.minecraft.block.*;
@@ -10,7 +9,6 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;

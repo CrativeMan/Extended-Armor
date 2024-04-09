@@ -1,6 +1,5 @@
 package io.github.crative.extended_armor;
 
-import io.github.crative.extended_armor.blocks.ExtendedArmorModBlocks;
 import io.github.crative.extended_armor.screen.ArmoryScreen;
 import io.github.crative.extended_armor.screen.ExtendedArmorScreenHandlers;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
